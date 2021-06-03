@@ -40,7 +40,7 @@ def XetHeAnToan(All, Need, Avai, soTienTrinh):
             break
 
     if all(Finish) == False:
-        print("Thu tu tien trinh duoc phan bo ",list_tien_trinh)
+        #print("Thu tu tien trinh duoc phan bo ",list_tien_trinh)
         return 0  # print('He khong an toan',Finish)
     else:
         print("Thu tu tien trinh duoc phan bo ", list_tien_trinh)
@@ -62,11 +62,13 @@ def YeuCauThem(All, Need, Avai, soTienTrinh):
     sum_alloc_request = [0 for i in range(0, len(avai))]  # khoi tao bien tong tat ca cac request bang 0
     for p, request_p in zip(list_p, listRequest):
         if not all(need[p] >= request_p):
-            return 0                                    # print("Request[" +str(p)+ "] la khong hop le , ket thuc ! : ")
+            print("Khong phan bo tai nguyen cho cac request !, ( Request[" + str(p) + "] la khong hop le )")
+            return 0
         sum_alloc_request += request_p
 
     if not all(sum_alloc_request <= avai):
-        return 0                                       # print(" Khong dap ung du tong so luong request , ket thuc !  : ")
+        print("Khong phan bo tai nguyen cho cac request !, ( Loi khong dap ung du tong so luong request ) ")
+        return 0
     # cap nhat lai sau khi gia dinh dap ung cac request
     for p, request_p in zip(list_p, listRequest):
         alloc[p] += request_p
@@ -76,7 +78,7 @@ def YeuCauThem(All, Need, Avai, soTienTrinh):
     if XetHeAnToan(alloc, need, avai, soTienTrinh):
         print("Phan bo tai nguyen cho cac request ! p[i] = ", list_p)
     else:
-        print("Khong phan bo tai nguyen cho cac request !")
+        print("Khong phan bo tai nguyen cho cac request ! ")
 
 # Main
 All, Max, Avai, Need, soTienTrinh = NhapDuLieu()
