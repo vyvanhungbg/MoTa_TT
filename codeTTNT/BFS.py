@@ -36,4 +36,4 @@ maTranKe = []
 v = int(input("So dinh : "))
 for i in range (0,v):
     maTranKe.append(list(map(str,input().split())))
-print("Ket thuc tim thay dinh ___ path : ",BFS(maTranKe,'A','R'))
+print("Ket thuc tim thay dinh ___ path : ",BFS(maTranKe,'A','O'))
